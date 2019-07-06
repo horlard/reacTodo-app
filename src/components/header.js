@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import FacebookAuth from './facebookAuth';
 
 const Header = () => {
     return (
@@ -8,7 +9,7 @@ const Header = () => {
         
         
         <div className='right menu'>
-            facebookauth
+            <FacebookAuth/>
         </div>
         
     </div>
