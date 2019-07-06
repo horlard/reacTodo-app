@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { Component } from 'react'
+import Todoform from '../components/todoForm';
+import {connect} from 'react-redux';
+import {todocreate} from '../actions';
 
-export default function todoCreate() {
-    return (
-        <div>
-            todoCreate
-        </div>
-    )
+class todoCreate extends Component {
+    onSubmit=(formValues)=> {
+        this.props.todocreate(formValues)
+    }
+    render() {
+        return (
+            <div>
+                <Todoform onSubmit={this.onSubmit}/>
+            </div>
+        )
+    }
 }
+export default connect(null,{todocreate})(todoCreate);
