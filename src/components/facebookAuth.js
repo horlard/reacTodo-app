@@ -6,14 +6,15 @@ import {Signin} from '../actions'
 class FacebookAuth extends Component {
     renderButton(){
         if(this.props.isSignedIn) {
-            return <button className='ui red google button'>Sign out</button>
+            return '';
         }else {
            return  <FacebookLogin
             appId="325255145050351"
             autoLoad={false}
             fields="name,email,picture"
             onClick={this.componentClicked.bind(this)}
-            callback={this.responseFacebook} />
+            callback={this.responseFacebook} 
+            />
         }
     }
     componentClicked(){
