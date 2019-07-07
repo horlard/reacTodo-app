@@ -20,8 +20,8 @@ class App extends React.Component{
                     <Header/>
                     <Route path='/' exact component={Todolist}/>
                     <Route path='/new' exact component={Todocreate}/>
-                    <Route path='/edit' exact component={Todoedit}/>
-                    <Route path='/delete' exact component={Tododelete} />
+                    <Route path='/edit/:id' exact component={Todoedit}/>
+                    <Route path='/delete/:id' exact component={Tododelete} />
                 </div>
             </Router>
             </div>
