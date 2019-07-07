@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-export default (state={},action) {
+export default (state={},action)=> {
     switch(action.type) {
         case 'TODO_CREATE' : 
             return {...state,[action.payload.id] : [action.payload]}
