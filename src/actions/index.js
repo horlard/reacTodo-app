@@ -22,8 +22,8 @@ export const todocreate = formValues => async dispatch => {
     History.push('/');
 }
 
-export const fetchtodo = id => async dispatch=> {
-    const response = Todoapi.get(`/todos/${id}`);
+export const fetchtodo = (id) => async dispatch=> {
+    const response = await Todoapi.get(`/todos/${id}`);
 
     dispatch ({
         type: 'FETCH_TODO',
@@ -31,7 +31,7 @@ export const fetchtodo = id => async dispatch=> {
     })
 }
 
-export const fetchtodos = async dispatch => {
+export const fetchtodos =()=> async dispatch => {
     const response =  await Todoapi.get('/todos');
     dispatch({
         type: 'FETCH_TODOS',
@@ -45,6 +45,7 @@ export const editodo = (formValues,id) => async dispatch => {
         type : 'EDIT_TODO',
         payload : response.data
     })
+    History.push('/');
 }
 
 export const deletetodo = id => async dispatch => {
@@ -53,4 +54,5 @@ export const deletetodo = id => async dispatch => {
         type : 'DELETE_TODO',
         payload: id
     })
+    History.push('/');
 }
