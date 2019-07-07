@@ -10,7 +10,7 @@ class todoCreate extends Component {
     render() {
         return (
             <div>
-                <Todoform onSubmit={this.onSubmit}/>
+                <Todoform onSubmit={this.onSubmit} title='+Add'/>
             </div>
         )
     }
