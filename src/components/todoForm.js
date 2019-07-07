@@ -31,7 +31,7 @@ class todoForm extends Component {
             <div>
                 <form className='ui form error' onSubmit={this.props.handleSubmit(this.onFormSubmit)}>
                     <Field name='todo' component={this.renderInput} label='Enter your Todo'/>
-                    <button className='ui primary button' style={{marginTop:'20px'}}>+Add</button>
+                    <button className='ui primary button' style={{marginTop:'20px'}}>{this.props.title}</button>
                 </form>
                 
             </div>
