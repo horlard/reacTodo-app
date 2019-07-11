@@ -6,6 +6,7 @@ import {todocreate} from '../actions';
 class todoCreate extends Component {
     onSubmit=(formValues)=> {
         this.props.todocreate(formValues)
+        
     }
     render() {
         return (
