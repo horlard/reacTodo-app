@@ -6,7 +6,13 @@ import {Signin} from '../actions'
 class FacebookAuth extends Component {
     renderButton(){
         if(this.props.isSignedIn) {
-            return '';
+            return (
+                <div className='header_con'>
+                    <img src={this.props.picture} className='header_pics'alt='active'/>
+                    <p className='header_paragraph'>{this.props.name}</p>
+                </div>
+                
+            );
         }else {
            return  <FacebookLogin
             appId="325255145050351"
@@ -22,7 +28,7 @@ class FacebookAuth extends Component {
         
     }
     responseFacebook=(response)=>{
-        this.props.Signin(response.userID)
+        this.props.Signin(response.userID,response.name,response.picture.data.url)
         console.log(response)
         
     }
@@ -39,6 +45,11 @@ class FacebookAuth extends Component {
 }
 
 const mapStateToProps=(state)=>{
-    return {isSignedIn:state.facebookAuth.isSignedIn}
+    return {
+        isSignedIn:state.facebookAuth.isSignedIn,
+        picture : state.facebookAuth.picture,
+        name : state.facebookAuth.name
+            
+    }
 }
 export default connect(mapStateToProps,{Signin})(FacebookAuth);
