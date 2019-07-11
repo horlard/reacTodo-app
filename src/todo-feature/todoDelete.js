@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux';
+import Loader from '../components/loader';
 
 
 import Modal from '../components/modal';
@@ -32,21 +33,26 @@ class todoDelete extends React.Component {
     render(){
         return (
             <div>
-                <Modal
+                {
+                    this.props.isSignedin ? 
+                    <Modal
                     title = 'Delete Todo'
                     content = 'Are you sure you are done with this todo'
                     action ={this.renderAction()}
-
+                    /> :
+                    <Loader/>
+                }
                 
-                
-                />
             </div>
         )
     }
     
 }
 const mapStateToProps = (state,ownProps) => {
-    return {todo : state.actionReducer[ownProps.match.params.id]}
+    return {
+            todo : state.actionReducer[ownProps.match.params.id],
+            isSignedin: state.facebookAuth.isSignedIn
+        }
 }
 
 export default connect(mapStateToProps,{fetchtodo,deletetodo})(todoDelete);
