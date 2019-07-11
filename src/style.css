@@ -1,0 +1,24 @@
+#floated-content {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    color: #ddd
+}
+.profile_pics {
+    border-radius: 50%;
+    width:20px;
+    height:20px;
+    margin-right: 5px;
+}
+.header_pics {
+    border-radius: 50%;
+    width: 40px;
+    height:40px;
+    margin-right: 5px;
+    
+}
+.header_con {
+    display : flex;
+    align-items: center;
+}
+
