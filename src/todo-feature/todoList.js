@@ -72,7 +72,7 @@ class todoList extends React.Component {
     render(){
         return (
             <div>
-                <div className='ui header'>Todos</div>
+                <h1 className='ui header'>Todos</h1>
                 <div className='ui celled list'>
                     {this.renderList()}
                 </div>
