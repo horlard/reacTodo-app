@@ -2,6 +2,7 @@ import Todoapi from '../api/todosapi';
 import History from '../components/history';
 
 export const Signin=(clientId,name,picture)=> {
+
     return {
         type : 'SIGN_IN',
         payload : {
@@ -36,9 +37,9 @@ export const fetchtodo = (id) => async dispatch=> {
     })
 }
 
-export const fetchtodos =()=> async (dispatch,getState) => {
-    const {clientId} = getState().facebookAuth
-    const response =  await Todoapi.get(`/todos?clientId=${clientId}`);
+export const fetchtodos =()=> async dispatch => {
+    
+    const response =  await Todoapi.get(`/todos`);
     dispatch({
         type: 'FETCH_TODOS',
         payload : response.data
