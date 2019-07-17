@@ -15,7 +15,7 @@ class todoList extends React.Component {
                 return (
                     <div className='item' key={todo.id}>
                         {this.renderActions(todo)}
-                        <i className="arrow right icon"></i>
+                        <i class="chevron right icon"></i>
                         <div className='content'>
                             <div className='header' key={todo.id}>
                                 {todo.todo}
