@@ -17,8 +17,8 @@ export const Signout =()=> {
     }
 }
 export const todocreate = formValues => async (dispatch,getState) => {
-    const {clientId} = getState().facebookAuth
-    const response = await Todoapi.post('/todos',{...formValues,clientId});
+    const {clientId,name} = getState().facebookAuth
+    const response = await Todoapi.post('/todos',{...formValues,clientId,name});
 
     dispatch({
         type:'TODO_CREATE',
