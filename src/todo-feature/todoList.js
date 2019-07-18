@@ -7,7 +7,7 @@ import '../../src/style.css'
 
 class todoList extends React.Component {
     componentDidMount(){
-        this.props.fetchtodos();
+        this.props.isSignedIn ? this.props.fetchtodos() : console.log('User not signed in')
     }
     renderList(){
         if(this.props.isSignedIn) {
