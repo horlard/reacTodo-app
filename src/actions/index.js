@@ -38,8 +38,8 @@ export const fetchtodo = (id) => async dispatch=> {
 }
 
 export const fetchtodos =()=> async (dispatch,getState) => {
-    const {name} =getState().facebookAuth
-    const response =  await Todoapi.get(`/todos?name=${name}`);
+    //const {name} =getState().facebookAuth
+    const response =  await Todoapi.get(`/todos`);
     dispatch({
         type: 'FETCH_TODOS',
         payload : response.data
