@@ -44,12 +44,13 @@ class todoList extends React.Component {
                     </div>
             )
         }
-        return (
-            <div className='right floated content'  id='floated-content'>
-                <img src={this.props.picture}  className='profile_pics'/>
-               {this.props.name}         
-            </div>
-        )
+        else{
+            return (
+                <div className='right floated content'  id='floated-content'>
+                    Created by other users         
+                </div>
+            )
+        }
         
 
         
