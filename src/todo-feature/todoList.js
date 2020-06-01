@@ -7,8 +7,18 @@ import '../../src/style.css'
 
 class todoList extends React.Component {
     componentDidMount(){
+        if(this.props.isSignedIn) {
          this.props.fetchtodos();
+        }
     }
+    componentDidUpdate(prevProps) {
+        // console.log(prevProps);
+        if(prevProps.isSignedIn !== this.props.isSignedIn && this.props.isSignedIn){
+            this.props.fetchtodos();
+        }
+    }
+
+
     renderList(){
         if(this.props.isSignedIn) {
             return this.props.todos.map(todo=>{
@@ -32,7 +42,7 @@ class todoList extends React.Component {
        
     }
     renderActions = (todo)=> {
-        if(todo.clientId=== this.props.clientID) {
+        if(todo.userID=== this.props.clientID) {
             return (
                 <div className='right floated content'>
                         <Link to={`/edit/${todo.id}`} className='ui button primary'>

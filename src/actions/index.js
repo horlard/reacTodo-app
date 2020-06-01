@@ -19,7 +19,7 @@ export const Signout =()=> {
 }
 export const todocreate = formValues => async (dispatch,getState) => {
     const {clientId,name} = getState().facebookAuth
-    const response = await Todoapi.post('/todos',{...formValues,clientId,name});
+    const response = await Todoapi.post('/todos',{...formValues,userID: clientId,name});
 
     dispatch({
         type:'TODO_CREATE',
@@ -37,9 +37,9 @@ export const fetchtodo = (id) => async dispatch=> {
     })
 }
 
-export const fetchtodos =()=> async (dispatch,getState) => {
-    //const {name} =getState().facebookAuth
-    const response =  await Todoapi.get(`/todos`);
+export const fetchtodos =()=> async (dispatch, getState) => {
+    const {clientId} =getState().facebookAuth
+    const response =  await Todoapi.get(`/todos?userID=${clientId}`);
     dispatch({
         type: 'FETCH_TODOS',
         payload : response.data
