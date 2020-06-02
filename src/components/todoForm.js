@@ -3,8 +3,13 @@ import {Field,reduxForm} from 'redux-form';
  
 class todoForm extends Component {
 
+    state={
+        isLoading: false
+    }
+
     onFormSubmit=(formValues)=> {
         this.props.onSubmit(formValues);
+        this.setState({isLoading:true})
     }
     renderError=(meta)=> {
         if(meta.error && meta.touched) {
@@ -27,11 +32,12 @@ class todoForm extends Component {
     }
 
     render() {
+        const {isLoading}=this.state
         return (
             <div>
                 <form className='ui form error' onSubmit={this.props.handleSubmit(this.onFormSubmit)}>
                     <Field name='todo' component={this.renderInput} label='Enter your Todo'/>
-                    <button className='ui primary button' style={{marginTop:'20px'}}>{this.props.title}</button>
+                    <button className={`ui primary ${isLoading ? 'loading' : ''} button`} style={{marginTop:'20px'}} disabled={isLoading}>{this.props.title}</button>
                 </form>
                 
             </div>
